@@ -5,8 +5,8 @@ on:
     branches: [main]
 
 jobs:
-  build:
-    name: Build and push docker image
+  build-n-deploy:
+    name: Build, push and deploy docker image
     permissions:
       contents: "read"
       id-token: "write"
