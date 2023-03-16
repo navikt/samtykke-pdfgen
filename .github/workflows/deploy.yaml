@@ -7,10 +7,10 @@ on:
 jobs:
   build:
     name: Build and push docker image
-    runs-on: ubuntu-latest
     permissions:
       contents: "read"
       id-token: "write"
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: docker-build-push
