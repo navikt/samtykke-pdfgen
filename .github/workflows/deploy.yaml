@@ -1,0 +1,34 @@
+name: Deploy samtykke PDF generator
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build and push docker image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: "read"
+      id-token: "write"
+    steps:
+      - uses: actions/checkout@v3
+      - name: docker-build-push
+        uses: nais/docker-build-push@v0
+        id: docker-push
+        with:
+          team: team-researchops
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+  deploy-to-dev:
+    name: Deploy to dev-gcp
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: dev-gcp
+          RESOURCE: .nais/dev.yaml
+          IMAGE: ${{ steps.docker-push.outputs.image }}
