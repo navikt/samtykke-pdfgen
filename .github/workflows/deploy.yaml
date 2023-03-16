@@ -35,4 +35,4 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: .nais/dev.yaml
-          IMAGE: ${{ steps.docker-push.outputs.image }}
+          VAR: image=${{ steps.docker-push.outputs.image }}
