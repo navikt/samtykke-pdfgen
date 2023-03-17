@@ -1,3 +1,14 @@
 {
-    "test": "test"
+    "title": "Brukertest av NAV.no",
+    "responsibleGroup": "Team personbruker",
+    "theme": "ytelser",
+    "purpose": "teste den nye layouten til den nye nettsiden til NAV.no som ble lansert for noen uker siden",
+    "totalInvolved": 4,
+    "expiration": "2023-06-10",
+    "endResult": "rapport om brukertesten.",
+    "employee": {
+        "firstname": "Jørn",
+        "lastname": "Monsen",
+        "email": "jørn.monsen@nav.no"
+    }
 }
