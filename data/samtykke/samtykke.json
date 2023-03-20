@@ -1,4 +1,5 @@
 {
+    "version": "EMPLOYEE",
     "title": "Brukertest av NAV.no",
     "responsibleGroup": "Team personbruker",
     "theme": "ytelser",
@@ -10,5 +11,10 @@
         "firstname": "Jørn",
         "lastname": "Monsen",
         "email": "jørn.monsen@nav.no"
+    },
+    "candidate": {
+        "name": "Bolle Hansen",
+        "email": "bolle.hansen@outlook.com",
+        "audioRecording": true
     }
 }

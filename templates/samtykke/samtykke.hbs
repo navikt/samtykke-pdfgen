@@ -106,20 +106,54 @@
             </p>
             <h2>Du takker ja til</h2>
             <p class="no_spacing">Kryss av boksene du føler deg komfertabel med</p>
-            <div class="checkbox_container">
-                <div class="square"></div>
-                <p class="checkbox_label">Ja, dere kan ta lydopptak</p>
-            </div>
+            {{#eq version "CITIZEN"}}
+                {{#eq candidate.audioRecording true}}
+                    <div class="checkbox_container">
+                        <img class="checkbox" src="{{ image "checked_checkbox.png"}}"/>
+                        <p class="checkbox_label">Ja, dere kan ta lydopptak</p>
+                    </div>
+                {{/eq}}
+                {{#not_eq candidate.audioRecording true}}
+                    <div class="checkbox_container">
+                        <img class="checkbox" src="{{ image "unchecked_checkbox.png"}}"/>
+                        <p class="checkbox_label">Ja, dere kan ta lydopptak</p>
+                    </div>
+                {{/not_eq}}
+            {{/eq}}
+            {{#eq version "EMPLOYEE"}}
+                <div class="checkbox_container">
+                    <img class="checkbox" src="{{ image "unchecked_checkbox.png"}}"/>
+                    <p class="checkbox_label">Ja, dere kan ta lydopptak</p>
+                </div>
+            {{/eq}}
             <h2 class="force">Ditt navn</h2>
-            <div class="rectangle"></div>
-            <h2>Din e-post</h2>
-            <div class="rectangle"></div>
+            {{#eq version "CITIZEN"}}
+                <p class="candidate_info no_spacing"><i>{{ candidate.name }}</i></p>
+            {{/eq}}
+            {{#eq version "EMPLOYEE"}}
+                <div class="rectangle"></div>
+            {{/eq}}
+            <h2 class="force">Din e-post</h2>
+            {{#eq version "CITIZEN"}}
+                <p class="candidate_info no_spacing"><i>{{ candidate.email }}</i></p>
+            {{/eq}}
+            {{#eq version "EMPLOYEE"}}
+                <div class="rectangle"></div>
+            {{/eq}}
             <h2>Samtykke</h2>
             <p class="no_spacing">Jeg ønsker å delta i: {{ title }}, og har lest og forstått samtykke</p>
-            <div class="checkbox_container">
-                <div class="square"></div>
-                <p class="checkbox_label">Ja, jeg samtykker</p>
-            </div>
+            {{#eq version "CITIZEN"}}
+                <div class="checkbox_container">
+                    <img class="checkbox" src="{{ image "checked_checkbox.png"}}"/>
+                    <p class="checkbox_label">Ja, jeg samtykker</p>
+                </div>
+            {{/eq}}
+            {{#eq version "EMPLOYEE"}}
+                <div class="checkbox_container">
+                    <img class="checkbox" src="{{ image "unchecked_checkbox.png"}}"/>
+                    <p class="checkbox_label">Ja, jeg samtykker</p>
+                </div>
+            {{/eq}}
         </div>
     </body>
 </html>
