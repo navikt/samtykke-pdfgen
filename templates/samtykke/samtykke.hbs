@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="description" content="Samtykke"/>
-        <title>Samtykke - {{ title }}</title>
+        <title>Samtykke - {{ consent.title }}</title>
         {{#block 'samtykke/partials/style'}}
         {{/block}}
     </head>
     <body>
         <div id="header">
             <img class="navlogo" src="{{ image "Navlogo.png" }}" />
-            <h1 class="title">Samtykke for: {{ title }}</h1>
+            <h1 class="title">Samtykke for: {{ consent.title }}</h1>
         </div>
         <div class="container">
             <p>
@@ -20,7 +20,7 @@
             </p>
             <h2>Hvem er vi, og hvem er ansvarlig for undersøkelsen?</h2>
             <p>
-                Vi er ansatte i: {{ responsibleGroup }} til Arbeid- og velferdsdirektoratet 
+                Vi er ansatte i: {{ consent.responsibleGroup }} til Arbeid- og velferdsdirektoratet 
                 (NAV). Vi jobber med å forbedre NAVs tjenester gjennom å involvere 
                 personer som bruker, eller kan komme til å bruke dem.
             </p>
@@ -37,9 +37,9 @@
             <h2>Hva må du gjøre hvis du velger å delta i denne undersøkelsen?</h2>
             <p>
                 Vi ønsker at du deltar i et intervju hvor vi spør deg om dine tanker 
-                og eventuelle erfaringer med {{ theme }} hos NAV. Hva du svarer og om 
+                og eventuelle erfaringer med {{ consent.theme }} hos NAV. Hva du svarer og om 
                 du vil svare på spørsmålene bestemmer du selv. Formålet med undersøkelsen 
-                er å {{ purpose }}.
+                er å {{ consent.purpose }}.
 
                 Samtalen gjøres på video, telefon eller fysisk. Intervjuet kan vare i 
                 (opptill en time).
@@ -62,7 +62,7 @@
             </p>
             <p>
                 Personalopplysningene dine blir lagret i en kort periode. Det er
-                {{ totalInvolved }} person(er) som har tilgang til dine opplysninger. 
+                {{ consent.totalInvolved }} person(er) som har tilgang til dine opplysninger. 
                 Det er kun disse personene som jobber med denne undersøkelsen i NAV, 
                 som har tilgang til opplysningne. De har taushetsplikt.
             </p>
@@ -70,7 +70,7 @@
                 Når intervjuet er ferdig, vil svarene anonymiseres. Anonymiseringen 
                 gjennomføres så fort som mulig. Opplysningene som kan lede tilbake til 
                 deg slettes så snart anonymiseringen er gjennomført og senest innen
-                {{ iso_to_date expiration }}. De anonyme dataene vil brukes til {{ endResult }}
+                {{ iso_to_date consent.expiration }}. De anonyme dataene vil brukes til {{ consent.endResult }}
             </p>
             <h2>Dine rettigheter</h2>
             <ul>
