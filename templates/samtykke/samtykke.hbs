@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="no">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content="Samtykke"/>
+        <meta name="description" content="Samtykke for brukertest ved NAV"/>
+        <meta name="author" content="samtykke-pdfgen"/>
+        <meta name="subject" content="Samtykke"/>
         <title>Samtykke - {{ consent.title }}</title>
         {{#block 'samtykke/partials/style'}}
         {{/block}}
     </head>
     <body>
         <div id="header">
-            <img class="navlogo" src="{{ image "Navlogo.png" }}" />
+            <img 
+                class="navlogo"
+                alt="Sort NAV logo"
+                src="{{ image "Navlogo.png" }}" 
+            />
             <h1 class="title">Samtykke for: {{ consent.title }}</h1>
         </div>
         <div class="container">
@@ -90,17 +96,28 @@
                 </li>
                 <li>
                     Du har rett til å 
-                    <a href="https://www.datatilsynet.no/om-datatilsynet/kontakt-oss/klage-til-datatilsynet/">
+                    <a 
+                        title="Lenke til å sende klage til datatilsynet" 
+                        href="https://www.datatilsynet.no/om-datatilsynet/kontakt-oss/klage-til-datatilsynet/"
+                    >
                         sende klage til Datatilsynet
                     </a> om behandlingen av dine personopplysninger.
                 </li>
             </ul>
             <p class="no_spacing">Mer om personvern:</p>
-            <p class="no_spacing"><a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">
-                NAVs personvernerklæring
-            </a></p>
             <p class="no_spacing">
-            <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernombudet-i-nav">
+                <a
+                    title="Lenke til NAV's personvernerklæring" 
+                    href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten"
+                >
+                    NAVs personvernerklæring
+                </a>
+            </p>
+            <p class="no_spacing">
+            <a
+                title="Lenke til kontakt NAV's personvernsombud" 
+                href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvernombudet-i-nav"
+            >
                 Kontakt personvernombudet
             </a>
             </p>
@@ -109,20 +126,32 @@
             {{#eq version "CITIZEN"}}
                 {{#eq candidate.audioRecording true}}
                     <div class="checkbox_container">
-                        <img class="checkbox" src="{{ image "checked_checkbox.png"}}"/>
+                        <img
+                            class="checkbox" 
+                            alt="En avkrysset avmerkingsboks"
+                            src="{{ image "checked_checkbox.png"}}"
+                        />
                         <p class="checkbox_label">Ja, dere kan ta lydopptak</p>
                     </div>
                 {{/eq}}
                 {{#not_eq candidate.audioRecording true}}
                     <div class="checkbox_container">
-                        <img class="checkbox" src="{{ image "unchecked_checkbox.png"}}"/>
+                        <img 
+                            class="checkbox" 
+                            alt="En ikke avkrysset avmerknigsboks"
+                            src="{{ image "unchecked_checkbox.png"}}"
+                        />
                         <p class="checkbox_label">Ja, dere kan ta lydopptak</p>
                     </div>
                 {{/not_eq}}
             {{/eq}}
             {{#eq version "EMPLOYEE"}}
                 <div class="checkbox_container">
-                    <img class="checkbox" src="{{ image "unchecked_checkbox.png"}}"/>
+                    <img 
+                        class="checkbox" 
+                        alt="En ikke avkrysset avmerknigsboks"
+                        src="{{ image "unchecked_checkbox.png"}}"
+                    />
                     <p class="checkbox_label">Ja, dere kan ta lydopptak</p>
                 </div>
             {{/eq}}
@@ -144,13 +173,21 @@
             <p class="no_spacing">Jeg ønsker å delta i: {{ consent.title }}, og har lest og forstått samtykke</p>
             {{#eq version "CITIZEN"}}
                 <div class="checkbox_container">
-                    <img class="checkbox" src="{{ image "checked_checkbox.png"}}"/>
+                    <img 
+                        class="checkbox" 
+                        alt="En ikke avkrysset avmerknigsboks"
+                        src="{{ image "unchecked_checkbox.png"}}"
+                    />
                     <p class="checkbox_label">Ja, jeg samtykker</p>
                 </div>
             {{/eq}}
             {{#eq version "EMPLOYEE"}}
                 <div class="checkbox_container">
-                    <img class="checkbox" src="{{ image "unchecked_checkbox.png"}}"/>
+                    <img 
+                        class="checkbox" 
+                        alt="En ikke avkrysset avmerknigsboks"
+                        src="{{ image "unchecked_checkbox.png"}}"
+                    />
                     <p class="checkbox_label">Ja, jeg samtykker</p>
                 </div>
             {{/eq}}
